@@ -16,7 +16,6 @@ def turtle_setup():
     t.left(90)
     t.forward(250)
 
-    platform()
 
 def platform():
     # left leg
@@ -71,8 +70,6 @@ def platform():
     t.right(90)
     t.forward(100)
 
-    head() # for testing purposes
-
     screen.exitonclick()
 
 def head():
@@ -83,15 +80,11 @@ def head():
     t.left(90)
     t.forward(50)
 
-    chest() #for testing purposes
-
     screen.exitonclick()
 
 def chest():
     t.pendown()
     t.forward(100)
-
-    l_arm() # for testing purposes
 
     screen.exitonclick()
 
@@ -102,8 +95,6 @@ def l_arm():
     t.back(70)
     t.right(45)
 
-    r_arm() # testing blah blah
-
     screen.exitonclick()
 
 def r_arm():
@@ -113,8 +104,6 @@ def r_arm():
     t.left(45)
     t.forward(80)
 
-    l_leg() # yep
-
     screen.exitonclick()
 
 def l_leg():
@@ -122,8 +111,6 @@ def l_leg():
     t.forward(90)
     t.back(90)
     t.right(30)
-
-    r_leg() # 3hm
     
     screen.exitonclick()
 def r_leg():
