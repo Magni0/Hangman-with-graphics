@@ -16,6 +16,8 @@ def turtle_setup():
     t.left(90)
     t.forward(250)
 
+    platform()
+
 
 def platform():
     # left leg
