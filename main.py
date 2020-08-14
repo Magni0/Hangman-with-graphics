@@ -27,6 +27,8 @@ def update_ans_dis(): # function that makes word_check print neatly in terminal
         word_dis += i
     return word_dis
 
+gr.turtle_setup()
+
 while True:
     print(update_ans_dis()) # called to show how many letters are in word object
     print(f'you have tried: {update_try_dis()}')
@@ -34,6 +36,7 @@ while True:
     if guess == None:
         print('you need to put an answer')
         continue
+    
     elif guess in word:
         guess_index = word.index(guess)
         word_check[guess_index] = guess
@@ -41,6 +44,7 @@ while True:
         if check == word:
             print('YOU WIN!!!')
             break
+    
     elif guess not in word:
         man[chances]
         tried.append(guess)
@@ -48,6 +52,7 @@ while True:
             print('you lose :(')
             break
         chances += 1
+    
     else:
         print('logic issue')
         break
