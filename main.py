@@ -54,5 +54,5 @@ while True:
         chances += 1
     
     else:
-        print('logic issue')
+        raise Exception('somthing went wrong: non of the conditions were met')
         break

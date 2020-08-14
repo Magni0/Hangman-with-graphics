@@ -130,5 +130,3 @@ def you_lose():
     t.forward(200)
     t.write('YOU LOSE :(')
     screen.exitonclick
-
-turtle_setup()
