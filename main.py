@@ -9,7 +9,7 @@ word = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and
 word_check = [] # used to change the word_dis variable
 tried = []
 
-man = (gr.head(), gr.chest(), gr.l_arm, gr.r_arm(), gr.l_leg(), gr.r_leg) # defined function calls in a tuple to be drawn in sequence order
+man = (gr.turtle_setup(),gr.head(), gr.chest(), gr.l_arm, gr.r_arm(), gr.l_leg(), gr.r_leg) # defined function calls in a tuple to be drawn in sequence order
 chances = 0 
 
 for i in word:
@@ -26,8 +26,6 @@ def update_ans_dis(): # function that makes word_check print neatly in terminal
     for i in word_check:
         word_dis += i
     return word_dis
-
-gr.turtle_setup()
 
 while True:
     print(update_ans_dis()) # called to show how many letters are in word object

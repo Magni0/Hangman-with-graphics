@@ -72,7 +72,6 @@ def platform():
     t.right(90)
     t.forward(100)
 
-    screen.exitonclick()
 
 def head():
     t.right(90)
@@ -82,13 +81,11 @@ def head():
     t.left(90)
     t.forward(50)
 
-    screen.exitonclick()
 
 def chest():
     t.pendown()
     t.forward(100)
 
-    screen.exitonclick()
 
 def l_arm():
     t.back(80)
@@ -97,7 +94,6 @@ def l_arm():
     t.back(70)
     t.right(45)
 
-    screen.exitonclick()
 
 def r_arm():
     t.right(45)
@@ -106,7 +102,6 @@ def r_arm():
     t.left(45)
     t.forward(80)
 
-    screen.exitonclick()
 
 def l_leg():
     t.left(30)
@@ -114,7 +109,6 @@ def l_leg():
     t.back(90)
     t.right(30)
     
-    screen.exitonclick()
 def r_leg():
     t.right(30)
     t.forward(90)
@@ -123,10 +117,8 @@ def r_leg():
 
     you_lose()
 
-    screen.exitonclick()
-
 def you_lose():
     t.penup()
     t.forward(200)
     t.write('YOU LOSE :(')
-    screen.exitonclick
+    screen.exitonclick()
