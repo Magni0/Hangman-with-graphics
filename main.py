@@ -9,7 +9,7 @@ word = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and
 word_check = [] # used to change the word_dis variable
 tried = []
 
-man = (gr.turtle_setup(),gr.head(), gr.chest(), gr.l_arm, gr.r_arm(), gr.l_leg(), gr.r_leg) # defined function calls in a tuple to be drawn in sequence order
+# man = ( gr.turtle_setup(), gr.head(), gr.chest(), gr.l_arm(), gr.r_arm(), gr.l_leg(), gr.r_leg() ) # defined function calls in a tuple to be drawn in sequence order
 chances = 0 
 
 for i in word:
