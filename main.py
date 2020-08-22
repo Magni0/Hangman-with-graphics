@@ -46,6 +46,18 @@ while True:
             break
     
     elif guess not in word:
+        # if chances == 0:
+        #     pass
+        # elif chances == 1:
+        #     pass
+        # elif chances == 2:
+        #     pass
+        # elif chances == 3:
+        #     pass
+        # elif chances == 4:
+        #     pass
+        # elif chances == 5:
+        #     pass
         man[chances]
         tried.append(guess)
         if chances == 5:
