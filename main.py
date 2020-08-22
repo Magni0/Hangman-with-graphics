@@ -9,7 +9,9 @@ word = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and
 word_check = [] # used to change the word_dis variable
 tried = []
 
-# ( gr.turtle_setup(), gr.head(), gr.chest(), gr.l_arm(), gr.r_arm(), gr.l_leg(), gr.r_leg() ) order of function calls
+gr.turtle_setup()
+
+man = ( 'gr.head()', 'gr.chest()', 'gr.l_arm()', 'gr.r_arm()', 'gr.l_leg()', 'gr.r_leg()' ) # order of function calls
 chances = 0 
 
 for i in word:
