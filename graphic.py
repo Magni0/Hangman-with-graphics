@@ -1,10 +1,12 @@
 import turtle
+import time
 
 screen = turtle.Screen()
 t = turtle.Turtle()
 
 def turtle_setup():
     # setup
+    turtle.Screen()
     t.hideturtle()
     t.color('white')
     turtle.bgcolor('black')
@@ -121,4 +123,5 @@ def you_lose():
     t.penup()
     t.forward(200)
     t.write('YOU LOSE :(')
-    screen.exitonclick()
+    time.sleep(3)
+    screen.bye()
