@@ -11,7 +11,7 @@ tried = []
 
 gr.turtle_setup()
 
-man = ( 'gr.head()', 'gr.chest()', 'gr.l_arm()', 'gr.r_arm()', 'gr.l_leg()', 'gr.r_leg()' ) # order of function calls
+# ( 'gr.head()', 'gr.chest()', 'gr.l_arm()', 'gr.r_arm()', 'gr.l_leg()', 'gr.r_leg()' ) # order of function calls
 chances = 0 
 
 for i in word:
@@ -46,23 +46,21 @@ while True:
             break
     
     elif guess not in word:
-        # if chances == 0:
-        #     pass
-        # elif chances == 1:
-        #     pass
-        # elif chances == 2:
-        #     pass
-        # elif chances == 3:
-        #     pass
-        # elif chances == 4:
-        #     pass
-        # elif chances == 5:
-        #     pass
-        man[chances]
-        tried.append(guess)
-        if chances == 5:
+        if chances == 0:
+            gr.head()
+        elif chances == 1:
+            gr.chest()
+        elif chances == 2:
+            gr.l_arm()
+        elif chances == 3:
+            gr.r_arm()
+        elif chances == 4:
+            gr.l_leg()
+        elif chances == 5:
+            gr.r_leg()
             print('you lose :(')
             break
+        tried.append(guess)
         chances += 1
     
     else:
