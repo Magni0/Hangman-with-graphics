@@ -58,21 +58,8 @@ def platform():
     t.forward(250)
 
     # rope
-    t.left(135)
-    for i in range(0, 7):
-        t.forward(20)
-        t.penup()
-        t.left(45)
-        t.back(14)
-        t.right(45)
-        t.pendown()
-    t.left(135)
+    t.left(90)
     t.forward(100)
-    t.right(90)
-    t.forward(15)
-    t.right(90)
-    t.forward(100)
-
 
 def head():
     t.right(90)
@@ -119,6 +106,7 @@ def r_leg():
     t.penup()
     t.forward(200)
     t.write('YOU LOSE :(')
+    refresh()
 
 def refresh():
     time.sleep(3)
