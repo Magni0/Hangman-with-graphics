@@ -45,6 +45,7 @@ while True:
             check = update_ans_dis()
             if check == hm:
                 print('YOU WIN!!!')
+                gr.refresh()
                 while True:
                     print('Do you want to play again? y/n')
                     choice = input('').lower()
@@ -70,6 +71,7 @@ while True:
             elif chances == 5:
                 print('you lose :(')
                 gr.r_leg()
+                gr.refresh()
                 
                 while True:
                     print('Do you want to try again? y/n')

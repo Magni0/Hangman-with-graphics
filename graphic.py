@@ -116,11 +116,11 @@ def r_leg():
     t.back(90)
     t.right(60)
 
-    you_lose()
-
-def you_lose():
     t.penup()
     t.forward(200)
     t.write('YOU LOSE :(')
+    refresh()
+
+def refresh():
     time.sleep(3)
     t.reset()
