@@ -6,7 +6,6 @@ t = turtle.Turtle()
 
 def turtle_setup():
     # setup
-    turtle.Screen()
     t.hideturtle()
     t.color('white')
     turtle.bgcolor('black')
@@ -124,4 +123,4 @@ def you_lose():
     t.forward(200)
     t.write('YOU LOSE :(')
     time.sleep(3)
-    screen.bye()
+    t.reset()
