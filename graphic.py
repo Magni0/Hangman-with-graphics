@@ -119,7 +119,6 @@ def r_leg():
     t.penup()
     t.forward(200)
     t.write('YOU LOSE :(')
-    refresh()
 
 def refresh():
     time.sleep(3)

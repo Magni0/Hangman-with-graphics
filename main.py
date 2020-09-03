@@ -5,7 +5,8 @@ import os
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__)) # defines the absolute path as main.py
 my_file = os.path.join(THIS_FOLDER, 'wordlist.txt') # defines the path of file 'wordlist.txt' the same as main.py
 
-retry = False
+word_check = [] # used to change the word_dis variable
+tried = []
 
 def update_try_dis(): # function that makes tried object print neatly in terminal
     try_dis = ''
@@ -19,6 +20,17 @@ def update_ans_dis(): # function that makes word_check print neatly in terminal
         word_dis += i
     return word_dis
 
+def check_retry():
+    while True:
+        print('Do you want to try again? y/n')
+        choice = input('').lower()
+        if choice == 'n':
+            exit()
+        elif choice == 'y':
+            return True
+        else:
+            print('invalid input')
+
 while True:
     retry = False
     chances = 0
@@ -27,8 +39,7 @@ while True:
     hm = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and makes the contents a list
     gr.turtle_setup()
 
-    for i in hm:
-        word_check.append('-') # fillers until correct letters guessed
+    [word_check.append('-') for i in hm] # fillers until correct letters guessed
     
     while True:
         print(update_ans_dis()) # called to show how many letters are in word object
@@ -46,16 +57,7 @@ while True:
             if check == hm:
                 print('YOU WIN!!!')
                 gr.refresh()
-                while True:
-                    print('Do you want to play again? y/n')
-                    choice = input('').lower()
-                    if choice == 'n':
-                        exit()
-                    elif choice == 'y':
-                        retry = True
-                        break
-                    else:
-                        print('invalid input')
+                retry = check_retry()
         
         elif guess not in hm:
             if chances == 0:
@@ -72,18 +74,8 @@ while True:
                 print('you lose :(')
                 gr.r_leg()
                 gr.refresh()
-                
-                while True:
-                    print('Do you want to try again? y/n')
-                    choice = input('').lower()
-                    if choice == 'n':
-                        exit()
-                    elif choice == 'y':
-                        retry = True
-                        break
-                    else:
-                        print('invalid input')
-            
+                retry = check_retry()
+
             tried.append(guess)
             chances += 1
         
