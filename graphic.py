@@ -4,110 +4,112 @@ import time
 screen = turtle.Screen()
 t = turtle.Turtle()
 
-def turtle_setup():
-    # setup
-    t.hideturtle()
-    t.color('white')
-    turtle.bgcolor('black')
+class TurtleGraphic:
+    def turtle_setup():
+        # setup
+        t.hideturtle()
+        t.color('white')
+        turtle.bgcolor('black')
 
-    # pen placement
-    t.penup()
-    t.right(180)
-    t.forward(100)
-    t.left(90)
-    t.forward(250)
+        # pen placement
+        t.penup()
+        t.right(180)
+        t.forward(100)
+        t.left(90)
+        t.forward(250)
 
-    platform()
-
-
-def platform():
-    # left leg
-    t.pendown()
-    t.forward(100)
-    t.right(180)
-    t.forward(50)
-    t.right(45)
-    t.forward(70)
-
-    # pen placement (right leg)
-    t.penup()
-    t.right(45)
-    t.forward(400)
-
-    # right leg
-    t.pendown()
-    t.right(90)
-    t.forward(100)
-    t.right(180)
-    t.forward(50)
-    t.left(45)
-    t.forward(70)
-
-    # platform top
-    t.right(135)
-    t.forward(50)
-    t.back(450)
-    t.forward(350)
-    t.left(90)
-    t.forward(500)
-    t.back(50)
-    t.left(45)
-    t.forward(70)
-    t.left(45)
-    t.back(50)
-    t.forward(250)
-
-    # rope
-    t.left(90)
-    t.forward(100)
-
-def head():
-    t.right(90)
-    t.forward(8)
-    t.circle(25)
-    t.penup()
-    t.left(90)
-    t.forward(50)
+        TurtleGraphic.platform()
 
 
-def chest():
-    t.pendown()
-    t.forward(100)
+    def platform():
+        # left leg
+        t.pendown()
+        t.forward(100)
+        t.right(180)
+        t.forward(50)
+        t.right(45)
+        t.forward(70)
+
+        # pen placement (right leg)
+        t.penup()
+        t.right(45)
+        t.forward(400)
+
+        # right leg
+        t.pendown()
+        t.right(90)
+        t.forward(100)
+        t.right(180)
+        t.forward(50)
+        t.left(45)
+        t.forward(70)
+
+        # platform top
+        t.right(135)
+        t.forward(50)
+        t.back(450)
+        t.forward(350)
+        t.left(90)
+        t.forward(500)
+        t.back(50)
+        t.left(45)
+        t.forward(70)
+        t.left(45)
+        t.back(50)
+        t.forward(250)
+
+        # rope
+        t.left(90)
+        t.forward(100)
+
+    def head():
+        t.right(90)
+        t.forward(8)
+        t.circle(25)
+        t.penup()
+        t.left(90)
+        t.forward(50)
 
 
-def l_arm():
-    t.back(80)
-    t.left(45)
-    t.forward(70)
-    t.back(70)
-    t.right(45)
+    def chest():
+        t.pendown()
+        t.forward(100)
 
 
-def r_arm():
-    t.right(45)
-    t.forward(70)
-    t.back(70)
-    t.left(45)
-    t.forward(80)
+    def l_arm():
+        t.back(80)
+        t.left(45)
+        t.forward(70)
+        t.back(70)
+        t.right(45)
 
 
-def l_leg():
-    t.left(30)
-    t.forward(90)
-    t.back(90)
-    t.right(30)
-    
-def r_leg():
-    t.right(30)
-    t.forward(90)
-    t.back(90)
-    t.right(60)
+    def r_arm():
+        t.right(45)
+        t.forward(70)
+        t.back(70)
+        t.left(45)
+        t.forward(80)
 
-    t.penup()
-    t.forward(200)
-    t.write('YOU LOSE :(')
-    refresh()
 
-def refresh():
-    time.sleep(3)
-    t.reset()
+    def l_leg():
+        t.left(30)
+        t.forward(90)
+        t.back(90)
+        t.right(30)
+        
+    def r_leg():
+        t.right(30)
+        t.forward(90)
+        t.back(90)
+        t.right(60)
+
+        t.penup()
+        t.forward(200)
+        t.write('YOU LOSE :(')
+        print('you lose :(')
+        TurtleGraphic.refresh()
+
+    def refresh():
+        time.sleep(3)
+        t.reset()

@@ -1,4 +1,5 @@
-import graphic as gr
+from display import UpdateDisplay
+from graphic import TurtleGraphic
 import random as ran
 import os
 
@@ -7,18 +8,9 @@ my_file = os.path.join(THIS_FOLDER, 'wordlist.txt') # defines the path of file '
 
 word_check = [] # used to change the word_dis variable
 tried = []
+gr = TurtleGraphic
 
-def update_try_dis(): # function that makes tried object print neatly in terminal
-    try_dis = ''
-    for i in tried:
-        try_dis += i + ' '
-    return try_dis
-
-def update_ans_dis(): # function that makes word_check print neatly in terminal
-    word_dis = ''
-    for i in word_check:
-        word_dis += i
-    return word_dis
+man = [gr.head, gr.chest, gr.l_arm, gr.r_arm, gr.l_leg, gr.r_leg]
 
 def check_retry():
     while True:
@@ -36,44 +28,35 @@ while True:
     chances = 0
     word_check = [] # used to change the word_dis variable
     tried = []
-    hm = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and makes the contents a list
+    
+    word = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and makes the contents a list
     gr.turtle_setup()
 
-    [word_check.append('-') for i in hm] # fillers until correct letters guessed
+    [word_check.append('-') for i in word] # fillers until correct letters guessed
     
     while True:
-        print(update_ans_dis()) # called to show how many letters are in word object
-        print(f'you have tried: {update_try_dis()}')
+        UpdateDis = UpdateDisplay(word_check, tried)
+        print(UpdateDis.update_ans_dis()) # called to show how many letters are in word object
+        print(f'you have tried: {UpdateDis.update_try_dis()}')
         guess = str(input('guess a letter: ')) 
         
         if guess == None:
             print('you need to put an answer')
             continue
         
-        elif guess in hm:
-            guess_index = hm.index(guess)
+        elif guess in word:
+            guess_index = word.index(guess)
             word_check[guess_index] = guess
-            check = update_ans_dis()
-            if check == hm:
+            check = UpdateDis.update_ans_dis()
+            if check == word:
                 print('YOU WIN!!!')
                 gr.refresh()
                 retry = check_retry()
-        
-        elif guess not in hm:
-            if chances == 0:
-                gr.head()
-            elif chances == 1:
-                gr.chest()
-            elif chances == 2:
-                gr.l_arm()
-            elif chances == 3:
-                gr.r_arm()
-            elif chances == 4:
-                gr.l_leg()
-            elif chances == 5:
-                print('you lose :(')
-                gr.r_leg()
-                gr.refresh()
+
+        elif guess not in word:
+            draw = man[chances]
+            draw()
+            if chances == 5:
                 retry = check_retry()
 
             tried.append(guess)
