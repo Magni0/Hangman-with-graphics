@@ -24,12 +24,12 @@ def check_retry():
             print('invalid input')
 
 while True:
-    retry = False
-    chances = 0
-    word_check = [] # used to change the word_dis variable
-    tried = []
+    retry: bool = False
+    chances: int = 0
+    word_check: list = [] # used to change the word_dis variable
+    tried: list = []
     
-    word = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and makes the contents a list
+    word: str = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and makes the contents a list
     gr.turtle_setup()
 
     [word_check.append('-') for i in word] # fillers until correct letters guessed
@@ -38,12 +38,16 @@ while True:
         UpdateDis = UpdateDisplay(word_check, tried)
         print(UpdateDis.update_ans_dis()) # called to show how many letters are in word object
         print(f'you have tried: {UpdateDis.update_try_dis()}')
-        guess = str(input('guess a letter: ')) 
+        guess = input('guess a letter: ') 
         
         if guess == None:
             print('you need to put an answer')
             continue
         
+        elif len(guess) > 1:
+            print('you must imput only one letter')
+            continue
+
         elif guess in word:
             guess_index = word.index(guess)
             word_check[guess_index] = guess
@@ -58,7 +62,6 @@ while True:
             draw()
             if chances == 5:
                 retry = check_retry()
-
             tried.append(guess)
             chances += 1
         

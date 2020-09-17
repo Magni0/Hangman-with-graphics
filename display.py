@@ -1,8 +1,8 @@
 class UpdateDisplay:
-    try_dis = ''
-    word_dis = ''
+    try_dis: str = ''
+    word_dis: str = ''
 
-    def __init__(self, word_check, tried):
+    def __init__(self, word_check: list, tried: list):
         self.word_check = word_check
         self.tried = tried
 
