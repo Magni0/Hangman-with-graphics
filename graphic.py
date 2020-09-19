@@ -20,7 +20,6 @@ class TurtleGraphic:
 
         TurtleGraphic.platform()
 
-
     def platform():
         # left leg
         t.pendown()
@@ -70,11 +69,9 @@ class TurtleGraphic:
         t.left(90)
         t.forward(50)
 
-
     def chest():
         t.pendown()
         t.forward(100)
-
 
     def l_arm():
         t.back(80)
@@ -83,14 +80,12 @@ class TurtleGraphic:
         t.back(70)
         t.right(45)
 
-
     def r_arm():
         t.right(45)
         t.forward(70)
         t.back(70)
         t.left(45)
         t.forward(80)
-
 
     def l_leg():
         t.left(30)

@@ -2,6 +2,7 @@ from display import UpdateDisplay
 from graphic import TurtleGraphic
 import random as ran
 import os
+import sys
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__)) # defines the absolute path as main.py
 my_file = os.path.join(THIS_FOLDER, 'wordlist.txt') # defines the path of file 'wordlist.txt' the same as main.py
@@ -17,7 +18,7 @@ def check_retry():
         print('Do you want to try again? y/n')
         choice = input('').lower()
         if choice == 'n':
-            exit()
+            sys.exit(0)
         elif choice == 'y':
             return True
         else:
@@ -34,6 +35,9 @@ while True:
 
     [word_check.append('-') for i in word] # fillers until correct letters guessed
     
+    print('{:#^50}'.format(' Welcome To HangMan '))
+    print('type quit at any time to exit')
+    
     while True:
         UpdateDis = UpdateDisplay(word_check, tried)
         print(UpdateDis.update_ans_dis()) # called to show how many letters are in word object
@@ -43,6 +47,9 @@ while True:
         if guess == None:
             print('you need to put an answer')
             continue
+        
+        elif guess == 'quit' or guess == 'exit':
+            sys.exit(0)
         
         elif len(guess) > 1:
             print('you must imput only one letter')
