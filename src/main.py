@@ -1,12 +1,8 @@
 from terminal_display import UpdateDisplay
 from graphic import HangManGraphic as gr
 from retry import Retry as re
-import random as ran
-import os
+from get_word import GetWord
 import sys
-
-THIS_FOLDER = os.path.dirname(os.path.abspath(__file__)) # defines the absolute path as main.py
-my_file = os.path.join(THIS_FOLDER, 'wordlist.txt') # defines the path of file 'wordlist.txt' the same as main.py
 
 word_check = [] # used to change the word_dis variable
 tried = []
@@ -19,7 +15,11 @@ while True:
     word_check: list = [] # used to change the word_dis variable
     tried: list = []
     
-    word: str = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and makes the contents a list
+    try:
+        word = GetWord.from_api()
+    except:
+        word = GetWord.from_wordlist()
+    
     gr.setup()
 
     [word_check.append('-') for i in word] # fillers until correct letters guessed
@@ -52,6 +52,10 @@ while True:
                 print('YOU WIN!!!')
                 gr.refresh()
                 retry = re.check_retry()
+                if retry == True:
+                    break
+                else:
+                    sys.exit(0)
 
         elif guess not in word:
             draw = man[chances]
@@ -61,8 +65,3 @@ while True:
                 retry = re.check_retry()
             tried.append(guess)
             chances += 1
-        
-        if retry == True:
-            break
-        else:
-            sys.exit(0)

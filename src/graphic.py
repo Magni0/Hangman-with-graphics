@@ -104,7 +104,7 @@ class HangManGraphic:
         t.forward(200)
         t.write('YOU LOSE :(')
         print('you lose :(')
-        TurtleGraphic.refresh()
+        HangManGraphic.refresh()
 
     def refresh():
         time.sleep(3)
