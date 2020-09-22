@@ -4,9 +4,10 @@ import time
 screen = turtle.Screen()
 t = turtle.Turtle()
 
-class TurtleGraphic:
-    def turtle_setup():
-        # setup
+# this class is responsible for drawing the hangman
+class HangManGraphic:
+    def setup():
+        # window settings
         t.hideturtle()
         t.color('white')
         turtle.bgcolor('black')
@@ -18,10 +19,10 @@ class TurtleGraphic:
         t.left(90)
         t.forward(250)
 
-        TurtleGraphic.platform()
+        HangManGraphic.platform()
 
     def platform():
-        # left leg
+        # left platform leg
         t.pendown()
         t.forward(100)
         t.right(180)
@@ -29,12 +30,12 @@ class TurtleGraphic:
         t.right(45)
         t.forward(70)
 
-        # pen placement (right leg)
+        # pen placement (for right platform leg)
         t.penup()
         t.right(45)
         t.forward(400)
 
-        # right leg
+        # right platform leg
         t.pendown()
         t.right(90)
         t.forward(100)

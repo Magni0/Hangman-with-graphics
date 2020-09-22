@@ -1,5 +1,6 @@
-from display import UpdateDisplay
-from graphic import TurtleGraphic
+from terminal_display import UpdateDisplay
+from graphic import HangManGraphic as gr
+from retry import Retry as re
 import random as ran
 import os
 import sys
@@ -9,20 +10,8 @@ my_file = os.path.join(THIS_FOLDER, 'wordlist.txt') # defines the path of file '
 
 word_check = [] # used to change the word_dis variable
 tried = []
-gr = TurtleGraphic
 
 man = [gr.head, gr.chest, gr.l_arm, gr.r_arm, gr.l_leg, gr.r_leg]
-
-def check_retry():
-    while True:
-        print('Do you want to try again? y/n')
-        choice = input('').lower()
-        if choice == 'n':
-            sys.exit(0)
-        elif choice == 'y':
-            return True
-        else:
-            print('invalid input')
 
 while True:
     retry: bool = False
@@ -31,7 +20,7 @@ while True:
     tried: list = []
     
     word: str = ran.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and makes the contents a list
-    gr.turtle_setup()
+    gr.setup()
 
     [word_check.append('-') for i in word] # fillers until correct letters guessed
     
@@ -44,15 +33,15 @@ while True:
         print(f'you have tried: {UpdateDis.update_try_dis()}')
         guess = input('guess a letter: ') 
         
-        if guess == None:
-            print('you need to put an answer')
+        if guess == '':
+            print('\nyou need to put an answer\n')
             continue
         
         elif guess == 'quit' or guess == 'exit':
             sys.exit(0)
         
         elif len(guess) > 1:
-            print('you must imput only one letter')
+            print('\nyou must imput only one letter\n')
             continue
 
         elif guess in word:
@@ -62,15 +51,18 @@ while True:
             if check == word:
                 print('YOU WIN!!!')
                 gr.refresh()
-                retry = check_retry()
+                retry = re.check_retry()
 
         elif guess not in word:
             draw = man[chances]
             draw()
             if chances == 5:
-                retry = check_retry()
+                print(f'the word was {word}')
+                retry = re.check_retry()
             tried.append(guess)
             chances += 1
         
         if retry == True:
             break
+        else:
+            sys.exit(0)
