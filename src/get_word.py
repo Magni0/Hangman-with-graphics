@@ -1,10 +1,12 @@
 import requests
 import random
 import os
+import json
 
 class GetWord:
     def from_api():
-        word = requests.get('https://random-word-api.herokuapp.com/word?number=1&swear=0') # gets a list of 1 string
+        r = requests.get('https://random-word-api.herokuapp.com/word?number=1&swear=0') # gets a list of 1 string
+        word = json.loads(r.text)
         return word[0] # returns that 1 element in string
     
     def from_wordlist():

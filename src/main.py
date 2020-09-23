@@ -1,6 +1,6 @@
 from terminal_display import UpdateDisplay
 from graphic import HangManGraphic as gr
-from retry import Retry as re
+from retry import Retry as retry
 from get_word import GetWord
 
 man = [gr.head, gr.chest, gr.l_arm, gr.r_arm, gr.l_leg, gr.r_leg]
@@ -15,13 +15,16 @@ while True: # done so that if user wants to play again it resets everything and 
     
     try:
         word = GetWord.from_api()
+        print("got word from api")
+        [word_check.append("-") for i in word] # fillers until correct letters guessed
+        word_check.pop(-1) # takes one off because there was one to many placeholders
     except:
+        print("the api didnt work: getting word from wordlist.txt")
         word = GetWord.from_wordlist()
+        [word_check.append("-") for i in word] # fillers until correct letters guessed
     
     gr.setup()
 
-    [word_check.append("-") for i in word] # fillers until correct letters guessed
-    
     while True:
         UpdateDis = UpdateDisplay(word_check, tried)
         print(UpdateDis.update_ans_dis()) # called to show how many letters are in word object
@@ -29,17 +32,17 @@ while True: # done so that if user wants to play again it resets everything and 
         guess = input("guess a letter: ") 
         
         if guess == '':
-            print("\nyou need to put an answer\n")
+            print("you need to put an answer\n")
             continue
         
         elif guess == "quit" or guess == "exit":
-            re.check_if_exit(False)
+            retry.check_if_exit(False)
         
         elif guess in tried:
             print(f"{guess} has allready been tried")
 
         elif len(guess) > 1:
-            print("\nyou must imput only one letter\n")
+            print("you must imput only one letter\n")
             continue
 
         elif guess in word:
@@ -56,21 +59,25 @@ while True: # done so that if user wants to play again it resets everything and 
             for i in letter_index:
                 word_check[i] = guess
             
+            # broken
             check = UpdateDis.update_ans_dis() # creates a string of every letter that is correct and has places holders for unknown letters
             
+            print(f'word_check: {word_check}')
+
+            # broken
             if check == word:
                 print("YOU WIN!!!")
                 gr.refresh_screen()
-                re.retry_or_exit()
+                retry.retry_or_exit()
                 break
 
         elif guess not in word:
             draw = man[chances]
             draw()
             if chances == 5:
-                print(f"the word was '{word}'")
+                print(f"the word was {word}")
                 gr.refresh_screen()
-                re.retry_or_exit()
+                retry.retry_or_exit()
                 break
 
             tried.append(guess)
