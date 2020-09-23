@@ -105,6 +105,6 @@ class HangManGraphic:
         t.write('YOU LOSE :(')
         print('you lose :(')
 
-    def refresh():
+    def refresh_screen():
         time.sleep(3)
         t.reset()

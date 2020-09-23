@@ -8,7 +8,7 @@ man = [gr.head, gr.chest, gr.l_arm, gr.r_arm, gr.l_leg, gr.r_leg]
 print("{:#^50}".format(" Welcome To HangMan "))
 print("type quit at any time to exit")
 
-while True:
+while True: # done so that if user wants to play again it resets everything and gets a new word
     chances: int = 0
     word_check: list = [] # used to change the word_dis variable
     tried: list = []
@@ -43,23 +43,25 @@ while True:
             continue
 
         elif guess in word:
-            letter_index = []
-            count = 0
+            letter_index = [] # holds the index of every instance that the letter is in the word
+            count = 0 # used to represent the index
             
+            # finds every location that letter is in the word
             for letter in word:
-                if letter == guess:
+                if letter == guess: 
                     letter_index.append(count)
                 count += 1
             
+            # switches the place holder '-' to the corect letter
             for i in letter_index:
                 word_check[i] = guess
             
-            check = UpdateDis.update_ans_dis()
+            check = UpdateDis.update_ans_dis() # creates a string of every letter that is correct and has places holders for unknown letters
             
             if check == word:
                 print("YOU WIN!!!")
-                gr.refresh()
-                re.full_check()
+                gr.refresh_screen()
+                re.retry_or_exit()
                 break
 
         elif guess not in word:
@@ -67,8 +69,8 @@ while True:
             draw()
             if chances == 5:
                 print(f"the word was '{word}'")
-                gr.refresh()
-                re.full_check()
+                gr.refresh_screen()
+                re.retry_or_exit()
                 break
 
             tried.append(guess)

@@ -3,7 +3,7 @@ import sys
 class Retry:
     def retry():
         while True:
-            print('Do you want to try again? y/n')
+            print('Do you want to play again? y/n')
             choice = input('').lower()
             if choice == 'n':
                 return False
@@ -18,6 +18,6 @@ class Retry:
         else:
             sys.exit(0)
     
-    def full_check():
+    def retry_or_exit():
         check = Retry.retry()
         Retry.check_if_exit(check)
