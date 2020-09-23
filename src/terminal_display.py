@@ -11,7 +11,6 @@ class UpdateDisplay:
             self.try_dis += i + ' '
         return self.try_dis
 
-    # broken
     def update_ans_dis(self): # function that makes word_check a string
         self.word_dis = ''
         for i in self.word_check:

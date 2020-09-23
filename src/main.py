@@ -59,7 +59,6 @@ while True: # done so that if user wants to play again it resets everything and 
             for i in letter_index:
                 word_check[i] = guess
             
-            # broken
             check = UpdateDis.update_ans_dis() # creates a string of every letter that is correct and has places holders for unknown letters
             
             print(f'word_check: {word_check}')
