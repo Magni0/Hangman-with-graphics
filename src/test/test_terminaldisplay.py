@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-sys.path.append(f'{os.path.dirname(os.path.abspath(__file__))}\..')
+sys.path.append('/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src')
 from terminal_display import UpdateDisplay
 
 class TestUpdateDisplay(unittest.TestCase):

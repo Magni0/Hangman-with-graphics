@@ -2,7 +2,7 @@ import unittest
 import sys
 import os
 import tracemalloc
-sys.path.append(f'{os.path.dirname(os.path.abspath(__file__))}\..')
+sys.path.append('/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src')
 from get_word import GetWord
 
 class TestGetWord(unittest.TestCase):
