@@ -1,4 +1,4 @@
-name: continuous integration
+name: CI/CD
 on:
   push:
     branches: [ master ]
@@ -21,7 +21,7 @@ jobs:
         run:  |
           python -m unittest discover -s src/test -v
   deployment:
-      needs: test_suite
+      needs: tests
       runs-on: ubuntu-latest
       steps:
         - name: Fresh clone & repo install
