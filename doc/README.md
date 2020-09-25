@@ -1,3 +1,5 @@
+github repo : https://github.com/Magni0/Hangman-with-graphics
+
 The solution is a single player Hang Man game that uses api GET requests to retreive a random word of which the player will be guessing and at the end retrive the definition of the word to show to the player. The purpose is to not only be a form of entertainment but also to increase the users vocabulary and better their spelling.
 
 The application will make a GET request to this API https://random-word-api.herokuapp.com/word?number=1&swear=0 with the parameters of only one word and swear words resticted. With a status code 200 the API will send back a random word in the format of json.
@@ -13,6 +15,4 @@ When the user guesses a letter either one of two things will happen:
 
 In *either* case the letter will be added to a 'tried' list to show the user what they have previously tried that letter.
 
-This prosses will loop through untill the user gets all of the letters correct or the man is complete (which is six incorrect letters) in which the terminal will display either 'YOU WIN !!!' or 'you lose :(' as well as the word if the user loses and a definition of the word if available (*and* if the word was succesfuly retrived by the random word API) by a GET request from this API  https://gad-proxy-prod-leap-2-1.us-east-1.elasticbeanstalk.com:443/api/v2/entries/
-
-Then the user will be asked if they wish to play again if not exits the program with the exit code 0
+This prosses will loop through untill the user gets all of the letters correct or the man is complete (which is six incorrect letters) in which the terminal will display either 'YOU WIN !!!' or 'you lose :('. Then the user will be asked if they wish to play again if not exits the program with the exit code 0
