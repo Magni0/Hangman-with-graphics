@@ -4,7 +4,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Branch
@@ -20,3 +20,22 @@ jobs:
       - name: Run Tests
         run:  |
           python -m unittest discover -s src/test -v
+  deployment:
+      needs: test_suite
+      runs-on: ubuntu-latest
+      steps:
+        - name: Fresh clone & repo install
+          uses: appleboy/ssh-action@master
+          with:
+            #IP address of EC2 instance
+            host: 100.25.31.103
+            #User you created on the EC2 instance
+            username: github-actions
+            #Name of the secrets variable where you put your secret key
+            key: $
+            port: 22
+            script: |
+              rm -rf Hangman-with-graphics
+              git clone https://github.com/Magni0/Hangman-with-graphics.git
+              python3.8 -m venv /home/github-actions/Hangman-with-graphics/venv
+              /home/github-actions/Hangman-with-graphics/venv/bin/pip3.8 install -r /home/github-actions/Hangman-with-graphics/requirements.txt
