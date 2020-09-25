@@ -26,7 +26,7 @@ The solution is split up into the folowing classes:
 
 modules used and what they were used for:
 
-    - requests:
+    - requests: used to make a HTTP GET request to the API
     - os: used in the GetWord.from_wordlist method to specify the directory that wordlist.txt is in as the current working dirctory that ran the file may not be the same as wordlist.txt
     - random: used for its random.choice method for the GetWord.from_wordlist method to select a random word from the output of the read file
     - json: used to make the response of the requests.get method usable in python 
