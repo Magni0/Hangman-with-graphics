@@ -12,7 +12,8 @@ class GetWord:
     def from_wordlist():
         THIS_FOLDER = os.path.dirname(os.path.abspath(__file__)) # gets the absolute path of get_word.py
         my_file = os.path.join(THIS_FOLDER, 'wordlist.txt') # defines the path of file 'wordlist.txt' the same as get_word.py
-        word = random.choice(open(my_file).readlines()) # reads the file 'wordlist.txt' and gets a word from it
+        with open(my_file, 'r') as f:
+            word = random.choice(f.readlines()) # reads the file 'wordlist.txt' and gets a word from it
         return word
     
     def try_api():
