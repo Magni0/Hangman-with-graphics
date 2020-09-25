@@ -60,6 +60,8 @@ while True: # done so that if user wants to play again it resets everything and 
                 Retry.retry_or_exit()
                 break
 
+            tried.append(guess)
+
         elif guess not in word:
             draw = man[chances]
             draw()
