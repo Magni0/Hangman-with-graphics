@@ -35,7 +35,7 @@ jobs:
             key: ${{ secrets.SSH_KEY }}
             port: 22
             script: |
-              rm -rf Hangman-with-graphics
+              sudo rm -rf Hangman-with-graphics
               git clone https://github.com/Magni0/Hangman-with-graphics.git
               python3.8 -m venv /home/github-actions/Hangman-with-graphics/venv
               /home/github-actions/Hangman-with-graphics/venv/bin/pip3.8 install -r /home/github-actions/Hangman-with-graphics/requirements.txt
