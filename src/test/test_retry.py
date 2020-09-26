@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import patch
-from src.retry import Retry
+path = '/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src'
+sys.path.append(path)
+from retry import Retry
 
 
 class TestRetry(unittest.TestCase):

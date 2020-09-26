@@ -28,7 +28,7 @@ jobs:
           uses: appleboy/ssh-action@master
           with:
             #IP address of EC2 instance
-            host: 35.153.93.230
+            host: 52.87.215.231
             #User you created on the EC2 instance
             username: github-actions
             #Name of the secrets variable where you put your secret key

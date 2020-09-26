@@ -1,5 +1,8 @@
 import unittest
-from src.terminal_display import UpdateDisplay
+import sys
+path = '/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src'
+sys.path.append(path)
+from terminal_display import UpdateDisplay
 
 
 class TestUpdateDisplay(unittest.TestCase):

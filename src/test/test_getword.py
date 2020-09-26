@@ -1,6 +1,8 @@
 import unittest
 import tracemalloc
-from src.get_word import GetWord
+path = '/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src'
+sys.path.append(path)
+from get_word import GetWord
 
 
 class TestGetWord(unittest.TestCase):
