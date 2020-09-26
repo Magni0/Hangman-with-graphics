@@ -1,9 +1,10 @@
 import unittest
 import sys
-import os
 import tracemalloc
-sys.path.append('/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src')
+path = '/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src'
+sys.path.append(path)
 from get_word import GetWord
+
 
 class TestGetWord(unittest.TestCase):
     def test_from_api(self):

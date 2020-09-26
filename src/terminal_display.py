@@ -6,17 +6,13 @@ class UpdateDisplay:
         self.word_check = word_check
         self.tried = tried
 
-    def update_try_dis(self): # function that makes tried a string
+    def update_try_dis(self):  # function that makes tried a string
         for i in self.tried:
-            if type(i) != str:
-                raise Exception('method update_try_dis in module terminal_display contained a non string element')
             self.try_dis += i + ' '
         return self.try_dis
 
-    def update_ans_dis(self): # function that makes word_check a string
+    def update_ans_dis(self):  # function that makes word_check a string
         self.word_dis = ''
         for i in self.word_check:
-            if type(i) != str:
-                raise Exception('method update_ans_dis in module terminal_display contained a non string element')
             self.word_dis += i
         return self.word_dis
