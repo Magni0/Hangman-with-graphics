@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import patch
+import sys
 path = '/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src'
 sys.path.append(path)
 from retry import Retry
