@@ -1,7 +1,7 @@
 import unittest
 import sys
 path = '/home/runner/work/Hangman-with-graphics/Hangman-with-graphics/src'
-sys.path.append()
+sys.path.append(path)
 from terminal_display import UpdateDisplay
 
 
