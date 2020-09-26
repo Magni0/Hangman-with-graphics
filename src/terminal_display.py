@@ -1,4 +1,7 @@
 class UpdateDisplay:
+
+    """changes lists to strings with certain changes"""
+
     try_dis: str = ''
     word_dis: str = ''
 
@@ -6,12 +9,20 @@ class UpdateDisplay:
         self.word_check = word_check
         self.tried = tried
 
-    def update_try_dis(self):  # function that makes tried a string
+    def update_try_dis(self):
+
+        """changes the argument 'tried' in to a string with a white
+        space between each element
+        """
+
         for i in self.tried:
             self.try_dis += i + ' '
         return self.try_dis
 
-    def update_ans_dis(self):  # function that makes word_check a string
+    def update_ans_dis(self):
+
+        """changes argument 'word_check' into a string"""
+
         self.word_dis = ''
         for i in self.word_check:
             self.word_dis += i
